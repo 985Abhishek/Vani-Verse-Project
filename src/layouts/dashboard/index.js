@@ -28,11 +28,11 @@ const DashboardLayout = () => {
       >
         <Stack
           direction="column"
-          allignItems={"center"}
+          allignitems={"center"}
           sx={{ width: "100%" }}
           spacing={3}
         >
-          <Stack alignItems={"center"} spacing={4}>
+          <Stack allignitems={"center"} spacing={4}>
             <Box
               sx={{
                 backgroundColor: theme.palette.primary.main,
@@ -46,8 +46,8 @@ const DashboardLayout = () => {
             <Stack
               // sx={{ width: "max-content" }}
               direction={"column"}
-              allignItems={"center"}
-              justfyContent="space-between"
+              allignitems={"center"}
+              justifycontent="space-between"
               sx={{ height: "100%" }}
               spacing={3}
             >
@@ -80,7 +80,7 @@ const DashboardLayout = () => {
                 )
               )}
               <Divider sx={{ width: "48px" }} />
-              {selected == 3 ? (
+              {selected === 3 ? (
                 <Box
                   p={1} // did it to allign the other button right below the logo in center
                   sx={{

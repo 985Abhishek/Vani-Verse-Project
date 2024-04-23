@@ -1,12 +1,12 @@
-import React from "react";
+import React from "react"
+import ChatFile from "./ChatFile"
 
 const GeneralApp = () => {
-
   return (
-    <>
-      App
-    </>
-  );
-};
+   <>
+   <ChatFile/>
+   </>
+  )
+}
 
-export default GeneralApp;
+export default GeneralApp
