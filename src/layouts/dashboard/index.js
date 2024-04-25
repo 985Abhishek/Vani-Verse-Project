@@ -10,13 +10,15 @@ import { faker } from "@faker-js/faker";
 
 import useSettings from "../../hooks/useSettings";
 
+
 const DashboardLayout = () => {
   const theme = useTheme();
   console.log(theme);
+  // used for check which button is selected
   const [selected, setSelected] = useState(0);
   const { onToggleMode } = useSettings();
   return (
-    <>
+    <Stack direction ="row">
       <Box
         p={2}
         sx={{
@@ -28,7 +30,7 @@ const DashboardLayout = () => {
       >
         <Stack
           direction="column"
-          allignitems={"center"}
+          allignItems={"center"}
           sx={{ width: "100%" }}
           spacing={3}
         >
@@ -88,7 +90,8 @@ const DashboardLayout = () => {
                     borderRadius: 1.5,
                   }}
                 >
-                  <IconButton sx={{ width: "max-content", color: "#fff" }}>
+                  <IconButton sx={{ width: "max-content",color:theme.palette.mode==="light"? "#fff":theme.palette.text.primary }}
+                >
                     <Gear />
                   </IconButton>
                 </Box>
@@ -97,7 +100,7 @@ const DashboardLayout = () => {
                   onClick={() => {
                     setSelected(3);
                   }}
-                  sx={{ width: "max-content", color: "#000" }}
+                  sx={{ width: "max-content", color:theme.palette.mode==="light"? "#000":theme.palette.text.primary }}
                 >
                   <Gear />
                 </IconButton>
@@ -118,7 +121,7 @@ const DashboardLayout = () => {
         </Stack>
       </Box>
       <Outlet />
-    </>
+    </Stack>
   );
 };
 
