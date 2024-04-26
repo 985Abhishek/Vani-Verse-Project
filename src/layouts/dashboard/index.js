@@ -10,15 +10,15 @@ import { faker } from "@faker-js/faker";
 
 import useSettings from "../../hooks/useSettings";
 
-
 const DashboardLayout = () => {
   const theme = useTheme();
+  const [selected, setSelected] = useState(0);
   console.log(theme);
   // used for check which button is selected
-  const [selected, setSelected] = useState(0);
+
   const { onToggleMode } = useSettings();
   return (
-    <Stack direction ="row">
+    <Stack direction="row">
       <Box
         p={2}
         sx={{
@@ -30,11 +30,12 @@ const DashboardLayout = () => {
       >
         <Stack
           direction="column"
-          allignItems={"center"}
-          sx={{ width: "100%" }}
+          alignItems={"center"}
+          justifyContent="space-bwtween"
+          sx={{ height: "100%" }}
           spacing={3}
         >
-          <Stack allignitems={"center"} spacing={4}>
+          <Stack alignItems={"center"} spacing={4}>
             <Box
               sx={{
                 backgroundColor: theme.palette.primary.main,
@@ -46,11 +47,11 @@ const DashboardLayout = () => {
               <img src={logo} alt={"chat logo"} />
             </Box>
             <Stack
-              // sx={{ width: "max-content" }}
+              sx={{ width: "max-content" }}
               direction={"column"}
-              allignitems={"center"}
-              justifycontent="space-between"
-              sx={{ height: "100%" }}
+              alignItems={"center"}
+              // justifyContent="space-between"
+              // sx={{ height: "100%" }}
               spacing={3}
             >
               {Nav_Buttons.map((el) =>
@@ -74,7 +75,13 @@ const DashboardLayout = () => {
                     onClick={() => {
                       setSelected(el.index);
                     }}
-                    sx={{ width: "max-content", color: "#000" }}
+                    sx={{
+                      width: "max-content",
+                      color:
+                        theme.palette.mode === "light"
+                          ? "#000"
+                          : theme.palette.text.primary,
+                    }}
                     key={el.index}
                   >
                     {el.icon}
@@ -90,8 +97,12 @@ const DashboardLayout = () => {
                     borderRadius: 1.5,
                   }}
                 >
-                  <IconButton sx={{ width: "max-content",color:theme.palette.mode==="light"? "#fff":theme.palette.text.primary }}
-                >
+                  <IconButton
+                    sx={{
+                      width: "max-content",
+                      color: "#fff",
+                    }}
+                  >
                     <Gear />
                   </IconButton>
                 </Box>
@@ -100,7 +111,13 @@ const DashboardLayout = () => {
                   onClick={() => {
                     setSelected(3);
                   }}
-                  sx={{ width: "max-content", color:theme.palette.mode==="light"? "#000":theme.palette.text.primary }}
+                  sx={{
+                    width: "max-content",
+                    color:
+                      theme.palette.mode === "light"
+                        ? "#000"
+                        : theme.palette.text.primary,
+                  }}
                 >
                   <Gear />
                 </IconButton>
@@ -108,15 +125,14 @@ const DashboardLayout = () => {
             </Stack>
           </Stack>
 
-          <Stack spacing={35}>
-            <Avatar src={faker.image.avatar()} />
+          <Stack spacing={32}>
             <Switch
-              onChange=
-              {() => {
+              onChange={() => {
                 onToggleMode();
               }}
               defaultChecked
             />
+            <Avatar src={faker.image.avatar()} />
           </Stack>
         </Stack>
       </Box>

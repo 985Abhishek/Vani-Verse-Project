@@ -1,25 +1,28 @@
 import React from "react";
 import ChatFile from "./ChatFile";
-import { Box, Stack } from "@mui/material";
+import { Box, Stack, Typography, useTheme } from "@mui/material";
 import Conversation from "../../components/Conversation";
 
 const GeneralApp = () => {
+  const theme=useTheme();
   return (
-    <Stack direction={"row"} sc={{ width: "auto" }}>
-     <ChatFile />
+    <Stack direction={"row"} sc={{ width: "100%" }}>
+      <ChatFile />
       <Box
         sx={{
-          top :0,
-          height: "100px",
-          width: "calc(100vw-200px)",
-          backgroundColor: "#fff",
+          height: "100%",
+          width: "1300px", // khud se di
+          backgroundColor:
+            theme.palette.mode === "Light"
+              ? "#fff"
+              : theme.palette.background.default,
         }}
-       >  <Conversation />
-       
-       
+      >
+        {" "}
+        <Conversation />
+        <Typography>Shree Radhe</Typography>
       </Box>
     </Stack>
-    
   );
 };
 
