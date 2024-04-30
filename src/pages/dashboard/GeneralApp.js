@@ -4,7 +4,7 @@ import { Box, Stack, Typography, useTheme } from "@mui/material";
 import Conversation from "../../components/Conversation";
 
 const GeneralApp = () => {
-  const theme=useTheme();
+  const theme = useTheme();
   return (
     <Stack direction={"row"} sc={{ width: "100%" }}>
       <ChatFile />
@@ -14,11 +14,10 @@ const GeneralApp = () => {
           width: "1300px", // khud se di
           backgroundColor:
             theme.palette.mode === "Light"
-              ? "#fff"
-              : theme.palette.background.default,
+              ? "#F0F4FA"
+              : theme.palette.background.paper,
         }}
       >
-        {" "}
         <Conversation />
         <Typography>Shree Radhe</Typography>
       </Box>
