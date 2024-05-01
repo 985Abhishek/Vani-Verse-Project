@@ -1,17 +1,37 @@
 import React, { useState } from "react";
-import { Avatar, Box, Divider, IconButton, Stack, } from "@mui/material";
-import {useTheme} from "@mui/material/styles";
+import {
+  Avatar,
+  Box,
+  Divider,
+  IconButton,
+  Stack,
+  Menu,
+  MenuItem,
+} from "@mui/material";
+import { useTheme } from "@mui/material/styles";
 import { Gear } from "phosphor-react";
-import { Nav_Buttons } from "../../data";
+import { Nav_Buttons, Profile_Menu } from "../../data";
 import useSettings from "../../hooks/useSettings";
 import { faker } from "@faker-js/faker";
 import AntSwitch from "../../components/AntSwitch";
-import Logo from "../../assets/Images/logo.ico"
+import Logo from "../../assets/Images/logo.ico";
 
 const Sidebar = () => {
   const theme = useTheme();
   const [selected, setSelected] = useState(0);
   const { onToggleMode } = useSettings();
+
+  const [anchorEl, setAnchorEl] = React.useState();
+  const open = Boolean(anchorEl);
+  // here i'ev used an if state because earlier when im clicking on avatar menu it seems to move with each click to positon tht i used this 
+  const handleClick = (event) => {
+    if (!open) {
+    setAnchorEl(event.currentTarget);
+    }
+  };
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
   return (
     <Box
       p={2}
@@ -126,7 +146,45 @@ const Sidebar = () => {
             }}
             defaultChecked
           />
-          <Avatar src={faker.image.avatar()} />
+          <Avatar id="basic-button" 
+           aria-controls={open ? "basic-menu" : undefined}
+           aria-haspopup="true"
+           aria-expanded={open ? "true" : undefined}
+           onClick={handleClick} src={faker.image.avatar()} />
+
+          <Menu
+            id="basic-menu"
+            anchorEl={anchorEl}
+            open={open}
+            onClose={handleClose}
+            MenuListProps={{
+              "aria-labelledby": "basic-button",
+            }}
+            // this is done to not hide the avatar when it is clicked and menu appear with this themenu appears to be on right rather than overlappping the avatar itself
+            anchorOrigin={{
+              vertical:"bottom",
+              horizontal:"right",
+            }}
+            transformOrigin={{
+              vertical:"bottom",
+              horizontal:"left",
+            }}
+          >
+            <Stack spacing={1} px={1}>
+              {Profile_Menu.map((el) => (
+                <MenuItem onClick={handleClick}>
+                  <stack
+                    sx={{ width: 100 }}
+                    direction="row"
+                    alignItems="center"
+                    justifyContent="space-between"
+                  >
+                    <span>{el.title}</span>
+                  </stack>
+                </MenuItem>
+              ))}
+            </Stack>
+          </Menu>
         </Stack>
       </Stack>
     </Box>

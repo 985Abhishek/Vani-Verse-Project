@@ -61,7 +61,8 @@ const Actions = [
   },
 ];
 
-const ChatInput = ({ setOpenPicker }) => {
+const ChatInput = ({setOpenPicker}) => {
+  const [openActions, setOpenActions] = React.useState(false);
   return (
     <StyledInput
       fullWidth
@@ -71,8 +72,13 @@ const ChatInput = ({ setOpenPicker }) => {
         disableUnderline: true,
         startAdornment: (
           <Stack sx={{ width: "max-content" }}>
-            <Stack sx={{ position: "relative" }}>
-              {Actions.map((el) => {
+            <Stack
+              sx={{
+                position: "relative",
+                display: openActions ? "inline-block" : "none",
+              }}
+            >
+              {Actions.map((el) => (
                 <Tooltip placement="right" title={el.title}>
                   <Fab
                     sx={{
@@ -83,11 +89,15 @@ const ChatInput = ({ setOpenPicker }) => {
                   >
                     {el.icon}
                   </Fab>
-                </Tooltip>;
-              })}
+                </Tooltip>
+              ))}
             </Stack>
             <InputAdornment>
-              <IconButton>
+              <IconButton
+                onClick={() => {
+                  setOpenActions((prev) => !prev);
+                }}
+              >
                 <LinkSimple />
               </IconButton>
             </InputAdornment>
@@ -96,11 +106,9 @@ const ChatInput = ({ setOpenPicker }) => {
         endAdornment: (
           <InputAdornment>
             {/* Logic for opening and closing */}
-            <IconButton
-              onClick={() => {
-                setOpenPicker((prev) => !prev);
-              }}
-            >
+            <IconButton onClick={()=>{
+              setOpenPicker((prev)=>!prev);
+            }}>
               <Smiley />
             </IconButton>
           </InputAdornment>

@@ -1,17 +1,22 @@
 import React from "react";
 import ChatFile from "./ChatFile";
-import { Box, Stack, Typography, useTheme } from "@mui/material";
+import { Box, Stack, useTheme } from "@mui/material";
 import Conversation from "../../components/Conversation";
+import Contact from "../../components/Contact";
+import { useSelector } from "react-redux";
 
 const GeneralApp = () => {
   const theme = useTheme();
-  return (
-    <Stack direction={"row"} sc={{ width: "100%" }}>
+  const { sidebar } = useSelector((store) => store.app);
+
+    return (
+    <Stack direction={"row"} sx={{ width: "100%" }}>
       <ChatFile />
       <Box
         sx={{
           height: "100%",
-          width: "1300px", // khud se di
+          width: sidebar.open ? "calc(100vw - 740px)" : "calc(100vw - 420px)",
+          // "1300px", // khud se di
           backgroundColor:
             theme.palette.mode === "Light"
               ? "#F0F4FA"
@@ -19,8 +24,9 @@ const GeneralApp = () => {
         }}
       >
         <Conversation />
-        <Typography>Shree Radhe</Typography>
       </Box>
+      {/* Contact */}
+      {sidebar.open && <Contact />}
     </Stack>
   );
 };
