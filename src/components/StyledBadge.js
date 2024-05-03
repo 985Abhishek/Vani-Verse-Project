@@ -1,6 +1,6 @@
  import { styled } from "@mui/material/styles";
  import { Badge } from "@mui/material";
- const StyledBadge = () => {
+ const StyledBadge = ({ children,...props }) => {
    
       const StyledBadge = styled(Badge)(({ theme }) => ({
           "& .MuiBadge-badge": {
@@ -34,4 +34,4 @@
     
   }
   
-  export default StyledBadge
+  export default StyledBadge;

@@ -1,15 +1,18 @@
 import React from "react";
 import ChatFile from "./ChatFile";
-import { Box, Stack, useTheme } from "@mui/material";
+import { Box, Stack } from "@mui/material";
 import Conversation from "../../components/Conversation";
 import Contact from "../../components/Contact";
 import { useSelector } from "react-redux";
+import { useTheme } from "@mui/material/styles";
+import SharedMessages from "../../components/SharedMessages";
+ 
 
 const GeneralApp = () => {
   const theme = useTheme();
   const { sidebar } = useSelector((store) => store.app);
 
-    return (
+  return (
     <Stack direction={"row"} sx={{ width: "100%" }}>
       <ChatFile />
       <Box
@@ -23,12 +26,31 @@ const GeneralApp = () => {
               : theme.palette.background.paper,
         }}
       >
+        {/* conversation */}
         <Conversation />
       </Box>
       {/* Contact */}
-      {sidebar.open && <Contact />}
+            {/* using an iife for opening sharedmessage, contact and starred messages */}
+      {sidebar.open && ( ()=>{
+switch (sidebar.type) {
+  case "CONTACT":
+    return <Contact />
+
+  case "STARRED":
+  break;
+
+  case "SHARED":
+    return <SharedMessages />
+    
+    
+
+  default:
+    break;
+}
+      })()}
     </Stack>
   );
 };
+ 
 
 export default GeneralApp;

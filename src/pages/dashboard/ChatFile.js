@@ -145,7 +145,7 @@ const ChatFile = () => {
         boxShadow: "0px, 0px, 2px rgba(0, 0, 0, 0.25)",
       }}
     >
-      <Stack p={3} spacing={2} sx={{height:"100vh",}}>
+      <Stack p={3} spacing={2} sx={{ height: "100vh" }}>
         <Stack
           direction="row"
           alignItems={"center"}
@@ -177,25 +177,29 @@ const ChatFile = () => {
 
         {/* ise uper wali stack ko niche band karna hae */}
 
-        <Stack spacing={2.4} direction="column" sx={{flexGrow:1, overFlow: "scroll",height:"100%" }}>
-          <SimpleBarStyle timeout={500} clickOnTrack={false} >
-          <Stack spacing={2.4}>
-            <Typography variant="subtitle2" sx={{ color: "#676767" }}>
-              Pinned
-            </Typography>
-            {ChatList.filter((el) => el.pinned).map((el) => {
-              return <ChatElement {...el} />;
-            })}
-          </Stack>
+        <Stack
+          spacing={2.4}
+          direction="column"
+          sx={{ flexGrow: 1, overFlow: "scroll", height: "100%" }}
+        >
+          <SimpleBarStyle timeout={500} clickOnTrack={false}>
+            <Stack spacing={2.4}>
+              <Typography variant="subtitle2" sx={{ color: "#676767" }}>
+                Pinned
+              </Typography>
+              {ChatList.filter((el) => el.pinned).map((el) => {
+                return <ChatElement {...el} />;
+              })}
+            </Stack>
 
-          <Stack spacing={2.4}>
-            <Typography variant="subtitle2" sx={{ color: "#676767" }}>
-              All Chats
-            </Typography>
-            {ChatList.filter((el) => !el.pinned).map((el) => {
-              return <ChatElement {...el} />;
-            })}
-          </Stack>
+            <Stack spacing={2.4}>
+              <Typography variant="subtitle2" sx={{ color: "#676767" }}>
+                All Chats
+              </Typography>
+              {ChatList.filter((el) => !el.pinned).map((el) => {
+                return <ChatElement {...el} />;
+              })}
+            </Stack>
           </SimpleBarStyle>
         </Stack>
       </Stack>

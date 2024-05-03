@@ -4,15 +4,15 @@ import {
   useSelector as useAppselector,
 } from "react-redux";
 import { persistStore, persistReducer } from "redux-persist";
-import { rootPersistConfig, rootReducer } from "./rootReducer";
+import { rootPeristConfig, rootReducer } from "./rootReducer";
 
 
 const store = configureStore({
-  reducer: persistReducer(rootPersistConfig, rootReducer),
+  reducer: persistReducer(rootPeristConfig, rootReducer),
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({
       serializableCheck: false,
-      inmutableCheck: false,
+      immutableCheck: false,
     }),
 });
 

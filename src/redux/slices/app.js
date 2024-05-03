@@ -13,7 +13,7 @@ const slice = createSlice({
   initialState,
   reducers: {
     //toogle sidebar
-    ToggleSidebar(state, action) {
+    toggleSidebar(state, action) {
       state.sidebar.open = !state.sidebar.open;
     },
     updateSidebarType(state, action) {
@@ -27,11 +27,11 @@ export default slice.reducer;
 
 export function ToggleSidebar() {
   return async () => {
-    dispatch(slice.actions.ToggleSidebar());
+    dispatch(slice.actions.toggleSidebar());
   };
 }
 
-export function updateSidebarType(type) {
+export function UpdateSidebarType(type) {
   return async () => {
     dispatch(slice.actions.updateSidebarType({ type, }));
   };

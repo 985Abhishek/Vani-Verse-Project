@@ -10,13 +10,15 @@ import {
 import { CaretDown, MagnifyingGlass, Phone, VideoCamera } from "phosphor-react";
 import { useTheme } from "@mui/material/styles";
 import { faker } from "@faker-js/faker";
-import StyledBadge from "../StyledBadge";
+import StyledBadge from '../StyledBadge' 
 import { useDispatch } from "react-redux";
-import { ToggleSidebar, toggleSidebar } from "../../redux/slices/app";
+import { ToggleSidebar,  } from "../../redux/slices/app";
 
 const Header = () => {
   const theme = useTheme();
   const dispatch = useDispatch();
+ 
+
   return (
     <Box
       p={1}
@@ -44,16 +46,22 @@ const Header = () => {
           spacing={2}
         >
           <Box>
-            <StyledBadge
+        {/* {/* <StyledBadge 
               overlap="circular"
               anchorOrigin={{ vertical: "bottom", horizontal: "right" }}
               variant="dot"
             >
-              <Avatar
-                alt={faker.name.fullName}
-                src={faker.image.avatar()}
+              {/* Avatar image is not working inside the styledbadge donot no why */}
+              {/* <Avatar
+              alt={faker.name.fullName()}
+                 src={faker.image.avatar()}
+                 
+              ></Avatar> */}
+            {/* </StyledBadge> */}  
+            <Avatar
+                 src={faker.image.avatar()}
+                alt={faker.name.fullName()}
               ></Avatar>
-            </StyledBadge>
           </Box>
           <Stack spacing={0.2}>
             <Typography variant="subtitles2">
