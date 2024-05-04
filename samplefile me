@@ -1,172 +1,372 @@
-//  <Box
-//       sx={{
-//         position: "relative",
-//         right: 0,
-//         left: "370px",
+// //  <Box
+// //       sx={{
+// //         position: "relative",
+// //         right: 0,
+// //         left: "370px",
 
-//         height: "100%",
-//         width: "calc(100% - 700px)",
-//         backgroundColor: "#F8FAFF",
-//         boxShadow: "0px 0px 2px rgba(0,0,0, int(0.25))",
+// //         height: "100%",
+// //         width: "calc(100% - 700px)",
+// //         backgroundColor: "#F8FAFF",
+// //         boxShadow: "0px 0px 2px rgba(0,0,0, int(0.25))",
+// //       }}
+// //     >
+// //       <Stack height={"100%"} maxHeight={"100%"} width={"auto"}>
+// //         <h1>
+// //           <b> shree radhe </b>
+// //         </h1>
+// //         <Box>
+// //           <Stack></Stack>
+// //         </Box>
+// //         <Box width={"100%"} sx={{ flexGrow: 1 }}></Box>
+// //         <Box>
+// //           <Stack></Stack>
+// //         </Box>
+// //       </Stack>
+// //     </Box>
+
+
+
+
+
+// //     import { Box, Stack,Avatar, Badge, Typography } from "@mui/material";
+// // import React from "react";
+// // import { faker } from "@faker-js/faker";
+// // import {styled} from "@mui/material/styles"
+
+// // const StyledBadge = styled(Badge)(({ theme }) => ({
+// //   "& .MuiBadge-badge": {
+// //     backgroundColor: "#44b700",
+// //     color: "#44b700",
+// //     boxShadow: `0 0 0 2px ${theme.palette.background.paper}`,
+// //     "&::after": {
+// //       position: "absolute",
+// //       top: 0,
+// //       left: 0,
+// //       width: "150%",
+// //       height: "100%",
+// //       borderRadius: "50%",
+// //       animation: "ripple 1.2s infinite ease-in-out",
+// //       border: "1px solid currentColor",
+// //       content: '""',
+// //     },
+// //   },
+// //   "@keyframes ripple": {
+// //     "0%": {
+// //       transform: "scale(.8)",
+// //       opacity: 1,
+// //     },
+// //     "100%": {
+// //       transform: "scale(2.4)",
+// //       opacity: 0,
+// //     },
+// //   },
+// // }));
+
+// // const Conversation = () => {
+// //   return (
+// //     <Stack height={"890px"} maxHeight={"100vh"} width={"1000%"}>
+// //       {/* chat header */}
+// //       <Box
+// //       p={2}
+// //         sx={{
+// //           height: 100,
+// //           width: "100%",
+// //           backgroundColor: "#F8FAFF",
+// //           boxShadow:"0px 0px 2px rgba(0,0,0,0.25)"
+           
+// //         }}>
+// //         <Stack alignItems={"center"} direction="row" justifyContent={"space-between"} sx ={{width:"100%", height:"100%"}}>
+// //           <Stack direction={"row"} spacing={2}>
+// //             <Box>
+// //           <StyledBadge overlap="circular"
+// //               anchorOrigin={{ vertical: "bottom", horizontal: "right" }}
+// //               variant="dot">
+// //                 <Avatar alt={faker.name.fullName()} src={ faker.image.avatar()}/>
+// //               </StyledBadge>
+// //               <Stack spacing ={0.2}>
+// //                 <Typography>{faker.name.fullName()}</Typography>
+// //                 <Typography>Online</Typography>
+// //               </Stack>
+// //             </Box>
+// //           </Stack>
+// //         </Stack>
+// //       </Box>
+// //       {/* msg */}
+// //       <Box sx={{ flexGrow: 1, width: "100%" }}></Box>
+// //       {/* chat footer */} 
+// //       <Box
+// //         sx={{
+// //           height: 100,
+// //           width: "100%",
+// //           backgroundColor: "#F8FAFF",
+// //           padding: "6px",
+// //           boxShadow:"0px 0px 2px rgba(0,0,0,0.25)"
+          
+// //         }}
+// //       ></Box>
+// //     </Stack>
+// //   );
+// // };
+
+// // export default Conversation;
+
+
+
+
+
+// // <Stack spacing={4}>
+// //             <Avatar src={faker.image.avatar()} />
+// //             <Switch
+// //               onChange={() => {
+// //                 onToggleMode();
+// //               }}
+// //               defaultChecked
+// //             />
+// //           </Stack>
+
+
+
+
+// // const StyledBadge = () => {
+// //   return (
+// //     const StyledBadge = styled(Badge)(({ theme }) => ({
+// //         "& .MuiBadge-badge": {
+// //           backgroundColor: "#44b700",
+// //           color: "#44b700",
+// //           boxShadow: `0 0 0 2px ${theme.palette.background.paper}`,
+// //           "&::after": {
+// //             position: "absolute",
+// //             top: 0,
+// //             left: 0,
+// //             width: "150%",
+// //             height: "100%",
+// //             borderRadius: "50%",
+// //             animation: "ripple 1.2s infinite ease-in-out",
+// //             border: "1px solid currentColor",
+// //             content: '""',
+// //           },
+// //         },
+// //         "@keyframes ripple": {
+// //           "0%": {
+// //             transform: "scale(.8)",
+// //             opacity: 1,
+// //           },
+// //           "100%": {
+// //             transform: "scale(2.4)",
+// //             opacity: 0,
+// //           },
+// //         },
+// //       }));
+      
+// //   )
+// // }
+
+// // export default StyledBadge
+
+
+
+
+
+// //sidebar.js
+// import React, { useState } from "react";
+// import {
+//   Avatar,
+//   Box,
+//   Divider,
+//   IconButton,
+//   Stack,
+//   Menu,
+//   MenuItem,
+// } from "@mui/material";
+// import { useTheme } from "@mui/material/styles";
+// import { Gear } from "phosphor-react";
+// import { Nav_Buttons, Profile_Menu } from "../../data";
+// import useSettings from "../../hooks/useSettings";
+// import { faker } from "@faker-js/faker";
+// import AntSwitch from "../../components/AntSwitch";
+// import Logo from "../../assets/Images/logo.ico";
+
+// const Sidebar = () => {
+//   const theme = useTheme();
+//   const [selected, setSelected] = useState(0);
+//   const { onToggleMode } = useSettings();
+
+//   const [anchorEl, setAnchorEl] = React.useState();
+//   const open = Boolean(anchorEl);
+//   // here i'ev used an if state because earlier when im clicking on avatar menu it seems to move with each click to positon tht i used this 
+//   const handleClick = (event) => {
+//     if (!open) {
+//     setAnchorEl(event.currentTarget);
+//     }
+//   };
+//   const handleClose = () => {
+//     setAnchorEl(null);
+//   };
+//   return (
+//     <Box
+//       p={2}
+//       sx={{
+//         backgroundColor: theme.palette.background.paper,
+//         boxShadow: "0px 0px 2px rgba(0,0,0,0.25)",
+//         height: "100vh",
+//         width: 100,
 //       }}
 //     >
-//       <Stack height={"100%"} maxHeight={"100%"} width={"auto"}>
-//         <h1>
-//           <b> shree radhe </b>
-//         </h1>
-//         <Box>
-//           <Stack></Stack>
-//         </Box>
-//         <Box width={"100%"} sx={{ flexGrow: 1 }}></Box>
-//         <Box>
-//           <Stack></Stack>
-//         </Box>
-//       </Stack>
-//     </Box>
-
-
-
-
-
-//     import { Box, Stack,Avatar, Badge, Typography } from "@mui/material";
-// import React from "react";
-// import { faker } from "@faker-js/faker";
-// import {styled} from "@mui/material/styles"
-
-// const StyledBadge = styled(Badge)(({ theme }) => ({
-//   "& .MuiBadge-badge": {
-//     backgroundColor: "#44b700",
-//     color: "#44b700",
-//     boxShadow: `0 0 0 2px ${theme.palette.background.paper}`,
-//     "&::after": {
-//       position: "absolute",
-//       top: 0,
-//       left: 0,
-//       width: "150%",
-//       height: "100%",
-//       borderRadius: "50%",
-//       animation: "ripple 1.2s infinite ease-in-out",
-//       border: "1px solid currentColor",
-//       content: '""',
-//     },
-//   },
-//   "@keyframes ripple": {
-//     "0%": {
-//       transform: "scale(.8)",
-//       opacity: 1,
-//     },
-//     "100%": {
-//       transform: "scale(2.4)",
-//       opacity: 0,
-//     },
-//   },
-// }));
-
-// const Conversation = () => {
-//   return (
-//     <Stack height={"890px"} maxHeight={"100vh"} width={"1000%"}>
-//       {/* chat header */}
-//       <Box
-//       p={2}
-//         sx={{
-//           height: 100,
-//           width: "100%",
-//           backgroundColor: "#F8FAFF",
-//           boxShadow:"0px 0px 2px rgba(0,0,0,0.25)"
-           
-//         }}>
-//         <Stack alignItems={"center"} direction="row" justifyContent={"space-between"} sx ={{width:"100%", height:"100%"}}>
-//           <Stack direction={"row"} spacing={2}>
-//             <Box>
-//           <StyledBadge overlap="circular"
-//               anchorOrigin={{ vertical: "bottom", horizontal: "right" }}
-//               variant="dot">
-//                 <Avatar alt={faker.name.fullName()} src={ faker.image.avatar()}/>
-//               </StyledBadge>
-//               <Stack spacing ={0.2}>
-//                 <Typography>{faker.name.fullName()}</Typography>
-//                 <Typography>Online</Typography>
-//               </Stack>
-//             </Box>
+//       <Stack
+//         direction="column"
+//         alignItems={"center"}
+//         justifyContent="space-bwtween"
+//         sx={{ height: "100%" }}
+//         spacing={3}
+//       >
+//         <Stack alignItems={"center"} spacing={4}>
+//           <Box
+//             sx={{
+//               backgroundColor: theme.palette.primary.main,
+//               height: 64,
+//               width: 64,
+//               borderRadius: 1.5,
+//             }}
+//           >
+//             <img src={Logo} alt={"chat logo"} />
+//           </Box>
+//           <Stack
+//             sx={{ width: "max-content" }}
+//             direction={"column"}
+//             alignItems={"center"}
+//             // justifyContent="space-between"
+//             // sx={{ height: "100%" }}
+//             spacing={3}
+//           >
+//             {Nav_Buttons.map((el) =>
+//               el.index === selected ? (
+//                 <Box
+//                   p={1} // did it to allign the other button right below the logo in center
+//                   sx={{
+//                     backgroundColor: theme.palette.primary.main,
+//                     borderRadius: 1.5,
+//                   }}
+//                 >
+//                   <IconButton
+//                     sx={{ width: "max-content", color: "#fff" }}
+//                     key={el.index}
+//                   >
+//                     {el.icon}
+//                   </IconButton>
+//                 </Box>
+//               ) : (
+//                 <IconButton
+//                   onClick={() => {
+//                     setSelected(el.index);
+//                   }}
+//                   sx={{
+//                     width: "max-content",
+//                     color:
+//                       theme.palette.mode === "light"
+//                         ? "#000"
+//                         : theme.palette.text.primary,
+//                   }}
+//                   key={el.index}
+//                 >
+//                   {el.icon}
+//                 </IconButton>
+//               )
+//             )}
+//             <Divider sx={{ width: "48px" }} />
+//             {selected === 3 ? (
+//               <Box
+//                 p={1} // did it to allign the other button right below the logo in center
+//                 sx={{
+//                   backgroundColor: theme.palette.primary.main,
+//                   borderRadius: 1.5,
+//                 }}
+//               >
+//                 <IconButton
+//                   sx={{
+//                     width: "max-content",
+//                     color: "#fff",
+//                   }}
+//                 >
+//                   <Gear />
+//                 </IconButton>
+//               </Box>
+//             ) : (
+//               <IconButton
+//                 onClick={() => {
+//                   setSelected(3);
+//                 }}
+//                 sx={{
+//                   width: "max-content",
+//                   color:
+//                     theme.palette.mode === "light"
+//                       ? "#000"
+//                       : theme.palette.text.primary,
+//                 }}
+//               >
+//                 <Gear />
+//               </IconButton>
+//             )}
 //           </Stack>
 //         </Stack>
-//       </Box>
-//       {/* msg */}
-//       <Box sx={{ flexGrow: 1, width: "100%" }}></Box>
-//       {/* chat footer */} 
-//       <Box
-//         sx={{
-//           height: 100,
-//           width: "100%",
-//           backgroundColor: "#F8FAFF",
-//           padding: "6px",
-//           boxShadow:"0px 0px 2px rgba(0,0,0,0.25)"
-          
-//         }}
-//       ></Box>
-//     </Stack>
+
+//         <Stack spacing={32}>
+//           <AntSwitch
+//             onChange={() => {
+//               onToggleMode();
+//             }}
+//             defaultChecked
+//           />
+//           <Avatar id="basic-button" 
+//            aria-controls={open ? "basic-menu" : undefined}
+//            aria-haspopup="true"
+//            aria-expanded={open ? "true" : undefined}
+//            onClick={handleClick} src={faker.image.avatar()} />
+
+//           <Menu
+//             id="basic-menu"
+//             anchorEl={anchorEl}
+//             open={open}
+//             onClose={handleClose}
+//             MenuListProps={{
+//               "aria-labelledby": "basic-button",
+//             }}
+//             // this is done to not hide the avatar when it is clicked and menu appear with this themenu appears to be on right rather than overlappping the avatar itself
+//             anchorOrigin={{
+//               vertical:"bottom",
+//               horizontal:"right",
+//             }}
+//             transformOrigin={{
+//               vertical:"bottom",
+//               horizontal:"left",
+//             }}
+//           >
+//             <Stack spacing={1} px={1}>
+//               {Profile_Menu.map((el) => (
+//                 <MenuItem onClick={handleClick}>
+//                   <stack
+//                     sx={{ width: 100 }}
+//                     direction="row"
+//                     alignItems="center"
+//                     justifyContent="space-between"
+//                   >
+//                     <span>{el.title}</span>
+//                   </stack>
+//                 </MenuItem>
+//               ))}
+//             </Stack>
+//           </Menu>
+//         </Stack>
+//       </Stack>
+//     </Box>
 //   );
 // };
 
-// export default Conversation;
+// export default Sidebar;
 
 
-
-
-
-// <Stack spacing={4}>
-//             <Avatar src={faker.image.avatar()} />
-//             <Switch
-//               onChange={() => {
-//                 onToggleMode();
-//               }}
-//               defaultChecked
-//             />
-//           </Stack>
-
-
-
-
-// const StyledBadge = () => {
-//   return (
-//     const StyledBadge = styled(Badge)(({ theme }) => ({
-//         "& .MuiBadge-badge": {
-//           backgroundColor: "#44b700",
-//           color: "#44b700",
-//           boxShadow: `0 0 0 2px ${theme.palette.background.paper}`,
-//           "&::after": {
-//             position: "absolute",
-//             top: 0,
-//             left: 0,
-//             width: "150%",
-//             height: "100%",
-//             borderRadius: "50%",
-//             animation: "ripple 1.2s infinite ease-in-out",
-//             border: "1px solid currentColor",
-//             content: '""',
-//           },
-//         },
-//         "@keyframes ripple": {
-//           "0%": {
-//             transform: "scale(.8)",
-//             opacity: 1,
-//           },
-//           "100%": {
-//             transform: "scale(2.4)",
-//             opacity: 0,
-//           },
-//         },
-//       }));
-      
-//   )
-// }
-
-// export default StyledBadge
-
-
-// solution to each child has a unique key pop problem
-// (<React.Fragment key={post.id}>
-//   <PostBasic post={post} postBefore={postBefore} />
-//   <RandomMessage />
-// </React.Fragment>
-// )
+// // solution to each child has a unique key pop problem
+// // (<React.Fragment key={post.id}>
+// //   <PostBasic post={post} postBefore={postBefore} />
+// //   <RandomMessage />
+// // </React.Fragment>
+// // )

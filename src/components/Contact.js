@@ -150,7 +150,7 @@ const Contact = () => {
              onClick={() => {
                 dispatch(UpdateSidebarType("STARRED"));
               }}>
-              {" "}
+             
               <CaretCircleRight />
             </IconButton>
           </Stack>

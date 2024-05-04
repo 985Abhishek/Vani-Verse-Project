@@ -28,14 +28,15 @@ const SharedMessages = () => {
             alignItems={"center"}
             spacing={3}
           >
+           
+            <Typography variant="subtitle2">Shared Messages</Typography>
             <IconButton
               onClick={() => {
-                dispatch(UpdateSidebarType("Contact"));
+                dispatch(UpdateSidebarType("CONTACT"));
               }}
             >
               <X />
             </IconButton>
-            <Typography variant="subtitle2">Contact Info </Typography>
           </Stack>
         </Box>
       </Stack>

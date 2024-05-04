@@ -2,6 +2,7 @@ import { combineReducers } from "redux";
 import storage from "redux-persist/lib/storage";
 import appReducer from "./slices/app"
 
+
 const rootPeristConfig = {
   key: "root",
   storage,
@@ -11,6 +12,6 @@ const rootPeristConfig = {
 };
 
 const rootReducer = combineReducers({
-  app: appReducer,
+  app : appReducer,
 });
 export { rootPeristConfig, rootReducer };
