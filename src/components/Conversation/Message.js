@@ -10,7 +10,7 @@ import {
 } from "./MsgTypes";
 import { Box, Stack } from "@mui/material";
 
-const Message = () => {
+const Message = ({menu}) => {
   return (
     <Box p={3}>
       <Stack spacing={3}>
@@ -18,22 +18,22 @@ const Message = () => {
           switch (el.type) {
             case "divder":
               //
-              return <TimeLine el={el} />;
+              return <TimeLine el={el} menu={menu} />;
             case "msg":
               switch (el.subtype) {
                 case "img":
-                  return <MediaMsg el={el} />;
+                  return <MediaMsg el={el} menu={menu}  />;
                 case "doc":
-                  return <DocMsg el={el} />;
+                  return <DocMsg el={el} menu={menu}  />;
                 case "link":
-                  return <LinkMsg el={el} />;
+                  return <LinkMsg el={el} menu={menu}  />;
                 case "reply":
-                  return <ReplyMsg el={el} />;
+                  return <ReplyMsg el={el} menu={menu} />;
 
                 default:
-                  <TextMsg el={el} />;
+                 return <TextMsg el={el} menu={menu} />;
               }
-              break;
+              
 
             default:
               return <></>;
