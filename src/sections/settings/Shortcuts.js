@@ -10,7 +10,6 @@ import {
   Stack,
   Typography,
 } from "@mui/material";
-import { Bell, Image, Info, Key, Keyboard, Lock, Note, PencilCircle } from "phosphor-react";
 
 const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />;
@@ -18,63 +17,100 @@ const Transition = React.forwardRef(function Transition(props, ref) {
 const list = [
   {
     key: 0,
-    icon: <Bell size={20} />,
-    title: "Notifications",
-    onclick: () => {},
+    title: "Mark as unread",
+    combination: ["Cmd", "Shift", "U"],
   },
   {
     key: 1,
-    icon: <Lock size={20} />,
-    title: "Privacy",
-    onclick: () => {},
+    title: "Mute",
+    combination: ["Cmd", "Shift", "H"],
   },
   {
     key: 2,
-    icon: <Key size={20} />,
-    title: "Security",
-    onclick: () => {},
+    title: "Archive Chat",
+    combination: ["Cmd", "Shift", "E"],
   },
   {
     key: 3,
-    icon: <PencilCircle size={20} />,
-    title: "Theme",
-    onclick: () => {},
+    title: "Delete Chat",
+    combination: ["Cmd", "Shift", "U"],
   },
   {
     key: 4,
-    icon: <Image size={20} />,
-    title: "Chat Wallpaper",
-    onclick: () => {},
+    title: "Pin Chat",
+    combination: ["Cmd", "Shift", "P"],
   },
   {
     key: 5,
-    icon: <Note size={20} />,
-    title: "Request Account Info",
-    onclick: () => {},
+    title: "Search",
+    combination: ["Cmd", "F"],
   },
 
   {
     key: 6,
-    icon: <Keyboard size={20} />,
-    title: "Keyboard Shortcuts",
-    onclick: ()=>{},
+    title: "Search Chat",
+    combination: ["Cmd", "Shift", "F"],
   },
   {
     key: 7,
-    icon: <Info size={20} />,
-    title: "Help",
-    onclick: () => {},
+    title: "Next Chat",
+    combination: ["Cmd", "Shift", "N"],
+  },
+  {
+    key: 8,
+    title: "Next Step",
+    combination: ["Cmd", "Shift", "Tab"],
+  },
+  {
+    key: 9,
+    title: "Previous Step",
+    combination: ["Cmd", "Shift", "Tab"],
+  },
+  {
+    key: 10,
+    title: "New Group",
+    combination: ["Cmd", "Shift", "N"],
+  },
+  {
+    key: 11,
+    title: "Profile & About",
+    combination: ["Cmd", "P"],
+  },
+  {
+    key: 12,
+    title: "Increase speed of voice messages",
+    combination: ["Shift", "."],
+  },
+  {
+    key: 13,
+    title: "Decrease speed of voice messages",
+    combination: ["Shift", ","],
+  },
+  {
+    key: 14,
+    title: "Settings",
+    combination: ["Shift", "S"],
+  },
+  {
+    key: 15,
+    title: "Emoji Panel",
+    combination: ["Cmd", "E"],
+  },
+  {
+    key: 16,
+    title: "Stcker Panel",
+    combination: ["Cmd", "S"],
   },
 ];
 
-const Shortcuts = ({ open, handleclose }) => {
+const Shortcuts = ({ open, handleClose }) => {
   return (
     <>
       <Dialog
-        fullwidth
+        fullWidth
         maxWidth="md"
         open={open}
-        onClose={handleclose}
+        onClose={handleClose}
         keepMounted
         TransitionComponent={Transition}
         sx={{ p: 4 }}
@@ -83,7 +119,7 @@ const Shortcuts = ({ open, handleclose }) => {
         <DialogContent sx={{ mt: 4 }}>
           <Grid container spacing={3}>
             {list.map(({ key, title, combination }) => (
-              <Grid key={key} container item sx={6}>
+              <Grid key={key} container item xs={6}>
                 <Stack
                   sx={{ width: "100%" }}
                   justifyContent="space-between"
@@ -99,7 +135,7 @@ const Shortcuts = ({ open, handleclose }) => {
                       return (
                         <Button
                           disabled
-                          variant="contained"
+                          variant="Contained"
                           sx={{ color: "#212121" }}
                         >
                           {el}
@@ -112,7 +148,7 @@ const Shortcuts = ({ open, handleclose }) => {
             ))}
           </Grid>
         </DialogContent>
-        <DialogActions varaint="container" onClick={handleclose}>
+        <DialogActions varaint="contained" onClick={handleClose}>
           Ok
         </DialogActions>
       </Dialog>

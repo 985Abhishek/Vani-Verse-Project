@@ -9,6 +9,7 @@ import {
 import React, { useState } from "react";
 import { useTheme } from "@mui/material/styles";
 import {
+  Bell,
   CaretLeft,
   Image,
   Info,
@@ -27,7 +28,7 @@ const Settings = () => {
 
   const handleOpenShortcuts = () => {
     setOpenShortcuts(true);
-  };
+  }
 
   const handleCloseShortcuts = () => {
     setOpenShortcuts(false);
@@ -36,7 +37,7 @@ const Settings = () => {
   const list = [
     {
       key: 0,
-      icon: <bell size={20} />,
+      icon: <Bell size={20} />,
       title: "Notifications",
       onclick: () => {},
     },
@@ -110,7 +111,7 @@ const Settings = () => {
             </Stack>
             {/* Profile */}
             <Stack direction={"row"} spacing={3}>
-              <Avatar src={faker.image.avatar()} alt={faker.name.fullName()} />
+              <Avatar sx={{width: 56, height:56  }} src={faker.image.avatar()} alt={faker.name.fullName()} />
               <Stack spacing={0.5}>
                 <Typography variant={"article"}>
                   {faker.name.fullName()}
@@ -141,12 +142,15 @@ const Settings = () => {
           </Stack>
         </Box>
       </Stack>
-      {openShortcuts && (
+      {/* {openShortcuts && (
         <Shortcuts
           open={openShortcuts}
-          handleclose={(handleCloseShortcuts) => {}}
+          handleClose={handleCloseShortcuts}
         />
+      )} */}
+      {openShortcuts && (<Shortcuts open={openShortcuts} handleClose={handleCloseShortcuts} />
       )}
+        
     </>
   );
 };
