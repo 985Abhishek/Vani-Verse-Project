@@ -1,24 +1,24 @@
-import React from "react";
 import { Link, Stack, Typography } from "@mui/material";
-import { CaretLeft } from "phosphor-react";
 import {Link as RouterLink} from "react-router-dom"
-import ResetPasswordForm from "./ResetPasswordForm";
+import React from "react";
+import { CaretLeft } from "phosphor-react";
+import NewpasswordForm from "./NewpasswordForm";
 
-
-const ResetPassword = () => {
+ const NewPassword = () => {
   return (
     <>
       <Stack spacing={2} sx={{ mb: 5, position: "relative" }}>
         <Typography variant="h3" paragraph>
-          Forgot your Password?
+          Reset Password
         </Typography>
+
         <Typography sx={{ color: "text.secondary", mb: 5 }}>
-          Please enter the email address associated with your account and we wll
-          email you a link to reset you password
+          Please set your new password
         </Typography>
-        {/* resetpasswordfrom */}
-        <ResetPasswordForm />
-        <Link
+      </Stack>
+      {/* NewpasswordForm */}
+      <NewpasswordForm />
+      <Link
           component={RouterLink}
           to="/auth/login"
           color="inherit"
@@ -32,10 +32,11 @@ const ResetPassword = () => {
         >
             <CaretLeft />
             Return to Sign in page 
-        </Link>
-      </Stack>
+        </Link> 
     </>
   );
 };
-
-export default ResetPassword;
+export default NewPassword;
+// solution to "Element type is invalid recieved a proise that resolves to undefined"
+// solution change that particular file to export default forexample in this 
+//earlier it was export const NewPassword  and we changed it to export default NewPassword; 

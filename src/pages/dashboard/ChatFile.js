@@ -1,10 +1,8 @@
 import {
-  Avatar,
   Box,
   Button,
   Divider,
   IconButton,
-  InputBase,
   Stack,
   Typography,
   Badge,
@@ -12,9 +10,12 @@ import {
 import SimpleBarStyle from "simplebar-react";
 import { ArchiveBox, CircleDashed, MagnifyingGlass } from "phosphor-react";
 import React from "react";
-import { styled, alpha, useTheme } from "@mui/material/styles";
-import { faker } from "@faker-js/faker";
+import { styled, useTheme } from "@mui/material/styles";
+
 import { ChatList } from "../../data";
+import { Search, StyledInputBase } from "../../components/Search";
+import SearchIconWrapper from "../../components/Search/SearchIconWrapper";
+import ChatElement from "../../components/ChatElement";
 
 const StyledBadge = styled(Badge)(({ theme }) => ({
   "& .MuiBadge-badge": {
@@ -45,89 +46,14 @@ const StyledBadge = styled(Badge)(({ theme }) => ({
   },
 }));
 // this is for the chat and placed right below the archive here we'll add boxes that will represent each user
-const ChatElement = ({ id, name, img, msg, time, unread, online }) => {
-  const theme = useTheme();
-  return (
-    <Box
-      sx={{
-        width: "100%", // adjust the width as needed<StyledBadge
-        // margin: "0 auto",
-        borderRadius: 1,
-        display: "flex",
-        alignItems: "center",
 
-        backgroundColor:
-          theme.palette.mode === "Light"
-            ? "#FFF"
-            : theme.palette.background.default,
-      }}
-      p={2}
-    >
-      <Stack
-        direction="row"
-        alignItems={"center"}
-        justifycontent="space-between"
-      >
-        <Stack direction="row" spacing={2}>
-          {online ? (
-            <StyledBadge
-              overlap="circular"
-              anchorOrigin={{ vertical: "bottom", horizontal: "right" }}
-              variant="dot"
-            >
-              <Avatar src={faker.image.avatar()}></Avatar>
-            </StyledBadge>
-          ) : (
-            <Avatar src={faker.image.avatar()}></Avatar>
-          )}
+// just a container for search bar <Search>
 
-          <Stack spacing={"0.3"}>
-            <Typography variant="subtitles2">{name}</Typography>
-            <Typography variant="caption">{msg}</Typography>
-          </Stack>
-        </Stack>
-        <Stack spacing={2} alignItems="center">
-          <Typography sx={{ fontWeight: 600 }} variant="caption">
-            {time}
-          </Typography>
-          <Badge color="primary" badgeContent={unread}></Badge>
-        </Stack>
-      </Stack>
+// hepl us to place the search icon<SearchIconWrapper>
 
-      {/* stack 1 band hori hae  */}
-    </Box>
-  );
-};
-// just a container for search bar
-const Search = styled("div")(({ theme }) => ({
-  position: "relative",
-  borderRadius: 20,
-  backgroundColor: alpha(theme.palette.background.default, 1),
-  marginRight: theme.spacing(2),
-  marginLeft: 0,
-  width: "100%",
-}));
-// hepl us to place the search icon
-const SearchIconWrapper = styled("div")(({ theme }) => ({
-  padding: theme.spacing(0, 2), // padding for adjusting magnigying glass position
-  height: "100%",
-  position: "absolute",
-  pointerEvents: "none",
-  display: "flex",
-  alignItems: "center",
-  justifyContent: "center",
-  // marginRight: theme.spacing(1),
-}));
+// marginRight: theme.spacing(1),<StyledInputBase>
+
 // to write in the search icon
-const StyledInputBase = styled(InputBase)(({ theme }) => ({
-  color: "inherit",
-  "& .MuiInputBase-input": {
-    padding: theme.spacing(1, 1, 1, 0),
-    paddingLeft: `calc(1em + ${theme.spacing(4)})`,
-    width: "100%",
-    // padding: theme.spacing(1.4, 2),
-  },
-}));
 
 const ChatFile = () => {
   const theme = useTheme();
@@ -178,9 +104,9 @@ const ChatFile = () => {
         {/* ise uper wali stack ko niche band karna hae */}
 
         <Stack
-          spacing={2.4}
+          spacing={2}
           direction="column"
-          sx={{ flexGrow: 1, overFlow: "scroll", height: "100%" }}
+          sx={{ flexGrow: 1, overflow: "scroll", height: "100%" }}
         >
           <SimpleBarStyle timeout={500} clickOnTrack={false}>
             <Stack spacing={2.4}>
