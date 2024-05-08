@@ -8,7 +8,8 @@ import MainLayout from "../layouts/main";
 // config
 import { DEFAULT_PATH } from "../config";
 import LoadingScreen from "../components/LoadingScreen";
-import Login from "../pages/auth/Login";
+import ResetPassword from "../pages/auth/ResetPassword";
+
 
 const Loadable = (Component) => (props) => {
   return (
@@ -22,8 +23,12 @@ export default function Router() {
   return useRoutes([
     {
       path: "/auth",
-      element: <MainLayout />,
-      Children: [{ path: "login", element: <LoginPage /> }],
+      element: <MainLayout/>,
+      children: [
+        { path: "login", element: <Loginpage /> },
+        { path: "register", element: <Registerpage /> },
+        { path: "reset-password", element: <ResetPasswordPage /> },
+      ],
     },
 
     {
@@ -45,7 +50,9 @@ export default function Router() {
 const GeneralApp = Loadable(
   lazy(() => import("../pages/dashboard/GeneralApp"))
 );
-const LoginPage = Loadable(lazy(() => import("../pages/auth/Login")));
+const Loginpage = Loadable(lazy(()=> import("../pages/auth/Login")))
+const Registerpage = Loadable(lazy(()=> import("../pages/auth/Register")))
+const ResetPasswordPage = Loadable(lazy(()=> import("../pages/auth/ResetPassword")))
 const Settings = Loadable(lazy(() => import("../pages/dashboard/Settings")));
 const Page404 = Loadable(lazy(() => import("../pages/Page404")));
 

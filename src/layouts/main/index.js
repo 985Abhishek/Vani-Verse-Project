@@ -1,8 +1,8 @@
 import React from "react";
 import { Outlet } from "react-router-dom";
-import { Login } from "../../pages/auth/Login";
 import { Container, Stack } from "@mui/material";
-import Logo from "../../assets/Images/logo.ico"
+import Logo from "../../assets/Images/logo.ico";
+
 const MainLayout = () => {
   return (
     <>
@@ -16,7 +16,6 @@ const MainLayout = () => {
             <img style={{ height: 120, width: 120 }} src={Logo} alt="Logo" />
           </Stack>
         </Stack>
-        <Login/>
         <Outlet />
       </Container>
     </>

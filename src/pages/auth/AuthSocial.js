@@ -1,5 +1,5 @@
-import { Divider, IconButton } from "@mui/material";
-import { GithubLogo, GoogleLogo, GooglePlayLogo, Stack, TwitchLogo, TwitterLogo } from "phosphor-react";
+import { Divider, IconButton, Stack } from "@mui/material";
+import { GithubLogo, GoogleLogo, TwitterLogo } from "phosphor-react";
 import React from "react";
 
 const AuthSocial = () => {
@@ -10,7 +10,7 @@ const AuthSocial = () => {
           my: 2.5,
           typography: "overline",
           color: "text.disabled",
-          "&::before,::after": {
+          '&::before,::after': {
             borderTopStyle: "dashed",
           },
         }}
@@ -18,15 +18,15 @@ const AuthSocial = () => {
         OR
       </Divider>
       <Stack direction={"row"} justifyContent="center" spacing={2}>
-        <IconButton>
-          <GooglePlayLogo />
-        </IconButton>
-        <IconButton>
-          <GithubLogo />
-        </IconButton>
-        <IconButton>
-          <TwitterLogo />
-        </IconButton>
+     <IconButton>
+      <GoogleLogo color="#DF3E30" />
+     </IconButton>
+     <IconButton color="inherit" >
+      <GithubLogo />
+     </IconButton>
+     <IconButton>
+      <TwitterLogo color="#1C9CEA" />
+     </IconButton>
       </Stack>
     </div>
   );

@@ -1,21 +1,23 @@
 import React, { useState } from "react";
 import * as Yup from "yup";
-import {Link as RouterLink} from "react-router-dom"
+
 import { useForm } from "react-hook-form";
+
 import { yupResolver } from "@hookform/resolvers/yup";
 import FormProvider from "../../components/hook-form/FormProvider";
-import { Stack } from "@mui/system";
-import { Alert, Button, IconButton, InputAdornment, Link } from "@mui/material";
+import { Alert, Button, IconButton, InputAdornment, Stack,  } from "@mui/material";
 import { RHFtextfield } from "../../components/hook-form";
 import { Eye, EyeSlash } from "phosphor-react";
-import {useTheme} from '@mui/material/styles'
+import {useTheme} from "@mui/material/styles"
 
-const LoginForm = () => {
-  const theme = useTheme();
+const RegisterForm = () => {
+    const theme = useTheme();
   const [showPassword, setShowPassword] = useState(false);
 
   //loginShcema will define what type od data can be passes in login like for name a string
-    const LoginSchema = Yup.object().shape({
+  const RegisterSchema = Yup.object().shape({
+    firstName: Yup.string().required("First name is required"),
+    lastName: Yup.string().required("last name is required"),
     email: Yup.string()
       .required("Email is required")
       .email("Email must be valid email address"),
@@ -23,12 +25,14 @@ const LoginForm = () => {
   });
 
   const defaultValues = {
-    email: "demotawk.com",
+    firstName: "",
+    lastName: "",
+    email: "vaniverse.com",
     Password: "demo1234",
   };
 
   const methods = useForm({
-    resolver: yupResolver(LoginSchema),
+    resolver: yupResolver(RegisterSchema),
     defaultValues,
   });
 
@@ -56,12 +60,18 @@ const LoginForm = () => {
         {!!errors.afterSubmit && (
           <Alert severity="error">{errors.afterSubmit.message}</Alert>
         )}
-
-        <RHFtextfield name="Email" label="Email address"></RHFtextfield>
+        {/*passing conditional values to mui means we're rendering f.name+lastname in a 
+single stack with half-half spacein column direction but  for other devices like 
+mobile we are rendering a condition of size and direction   */}
+        <Stack direction={{ xs: "column", sm: "row" }} spacing={2}>
+          <RHFtextfield name="firstName" label="First Name" />
+          <RHFtextfield name="lasttName" label="Last Name" />
+        </Stack>
+        <RHFtextfield name="email" label="Email address" />
         <RHFtextfield
-          name="passwrod"
-          label="password"
+          name="password"
           type={showPassword ? "text" : "password"}
+          label="Password"
           InputProps={{
             endAdornment: (
               <InputAdornment>
@@ -72,12 +82,7 @@ const LoginForm = () => {
             ),
           }}
         />
-      </Stack>
-      <Stack alignItems={"flex-end"} sx={{ my: 2 }}>
-        <Link component={RouterLink} to="/auth/reset-password" variant="body2" color={"inherit"} underline="always">
-          Forget Password?
-        </Link>
-      </Stack>
+      
       <Button
         fullWidth
         color="inherit"
@@ -94,10 +99,11 @@ const LoginForm = () => {
           },
         }}
       >
-      Login
+      Create Account
       </Button>
+      </Stack>
     </FormProvider>
   );
 };
 
-export default LoginForm;
+export default RegisterForm;
