@@ -16,9 +16,9 @@ const ChatElement = ({ id, name, img, msg, time, unread, online }) => {
           alignItems: "center",
   
           backgroundColor:
-            theme.palette.mode === "Light"
+            theme.palette.mode === "light"
               ? "#FFF"
-              : theme.palette.background.default,
+              : theme.palette.background.paper,
         }}
         p={2}
       >
