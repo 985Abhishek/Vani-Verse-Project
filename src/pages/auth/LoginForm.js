@@ -9,8 +9,11 @@ import { Alert, Button, IconButton, InputAdornment, Link } from "@mui/material";
 import { RHFtextfield } from "../../components/hook-form";
 import { Eye, EyeSlash } from "phosphor-react";
 import {useTheme} from '@mui/material/styles'
+import { LoginUser } from "../../redux/slices/auth";
+import { useDispatch } from "react-redux";
 
 const LoginForm = () => {
+  const dispatch = useDispatch();
   const theme = useTheme();
   const [showPassword, setShowPassword] = useState(false);
 
@@ -41,6 +44,8 @@ const LoginForm = () => {
   const onSubmit = async (data) => {
     try {
       //submit data to backend
+
+      dispatch(LoginUser(data));
     } catch (error) {
       console.log(error);
       reset();
